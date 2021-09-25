@@ -1,7 +1,7 @@
 PROJECT = projectname
 
 ifeq ($(OS),Windows_NT)
-	WINDOWS = true
+WINDOWS = true
 endif
 
 ifdef WINDOWS
@@ -11,7 +11,7 @@ EXT = .exe
 else
 RM = rm -rf
 ODIN = Odin/odin
-EXT =
+EXT = .bin
 endif
 
 DEBUG_EXE = $(PROJECT)-debug$(EXT)
@@ -42,11 +42,11 @@ $(ODIN):
 endif
 
 build_debug: $(ODIN)
-	$(ODIN) build . -debug -opt:0 -out:$(DEBUG_EXE) $(OFLAGS)
+	$(ODIN) build $(PROJECT) -debug -opt:0 -out:$(DEBUG_EXE) $(OFLAGS)
 build_relsafe: $(ODIN)
-	$(ODIN) build . -opt:2 -out:$(RELSAFE_EXE) $(OFLAGS)
+	$(ODIN) build $(PROJECT) -opt:2 -out:$(RELSAFE_EXE) $(OFLAGS)
 build_relfast: $(ODIN)
-	$(ODIN) build . -opt:2 -no-bounds-check -out:$(RELFAST_EXE) $(OFLAGS)
+	$(ODIN) build $(PROJECT) -opt:2 -no-bounds-check -out:$(RELFAST_EXE) $(OFLAGS)
 
 run_debug: build_debug
 	$(DEBUG_EXE)

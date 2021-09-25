@@ -13,9 +13,12 @@
 
 ## How to use
 
-0. `git submodule update --init`
-1. rename projectname.sublime-project
-2. rename PROJECT=projectname in Makefile
-3. open misc/env.bat 
-4. Sublime Text editor should now be open with x64 environment initialized
-5. Press Ctrl+Shift+B for list of build system targets
+0. Run `git submodule update --init` to checkout compiler
+1. Rename project
+   * `projectname` package directory
+   * projectname.sublime-project
+   * PROJECT=projectname in Makefile
+   * `package projectname` directive
+2. Open misc/env.bat 
+3. Sublime Text editor should now be open with x64 environment initialized
+4. Press Ctrl+Shift+B for list of build system targets
