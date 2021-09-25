@@ -1,0 +1,75 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+		},
+		{
+			"path": "Odin\\core",
+		},
+		{
+			"path": "Odin\\vendor"
+		},
+	],
+	"build_systems":
+	[
+		{
+			"name":"Odin",
+			"selector":"source.odin",
+			"file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$",
+			"working_dir":"$file_path",
+			"variants":[
+				{
+					"name":"check file",
+					"shell_cmd":"make check TARGET=$file",
+					"shell":true,
+				},
+				{
+					"name":"check package",
+					"shell_cmd":"make check TARGET=$file_path",
+					"shell":true,
+				},
+				{
+					"name":"run debug",
+					"shell_cmd":"make run_debug",
+					"shell":true,
+				},
+				{
+					"name":"run relsafe",
+					"shell_cmd":"make run_relsafe",
+					"shell":true,
+				},
+				{
+					"name":"run relfast",
+					"shell_cmd":"make run_relfast",
+					"shell":true,
+				},
+				{
+					"name":"build debug",
+					"shell_cmd":"make build_debug",
+					"shell":true,
+				},
+				{
+					"name":"build asm",
+					"shell_cmd":"make all ASM=1",
+					"shell":true,
+				},
+				{
+					"name":"build relsafe",
+					"shell_cmd":"make build_relsafe",
+					"shell":true,
+				},
+				{
+					"name":"build relfast",
+					"shell_cmd":"make build_relfast",
+					"shell":true,
+				},
+				{
+					"name":"clean",
+					"shell_cmd":"make clean",
+					"shell":true,
+				}
+			]
+		}
+	],
+}
