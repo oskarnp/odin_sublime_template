@@ -26,7 +26,7 @@ ifndef TARGET
 TARGET = .
 endif
 
-check:
+check: $(ODIN)
 	$(ODIN) check $(TARGET)
 
 ifdef ASM
